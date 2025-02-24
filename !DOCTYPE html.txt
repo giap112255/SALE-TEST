@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm Sale</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        h2 { text-align: center; }
+        .question { margin-bottom: 15px; }
+        .result { font-weight: bold; margin-top: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Bài Test Trắc Nghiệm Sale Đồng Phục</h2>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Điều quan trọng nhất khi tư vấn khách hàng là gì?</p>
+            <input type="radio" name="q1" value="A"> A. Tư vấn đúng nhu cầu<br>
+            <input type="radio" name="q1" value="B"> B. Thuyết phục khách mua hàng đắt nhất<br>
+            <input type="radio" name="q1" value="C"> C. Chốt đơn nhanh<br>
+            <input type="radio" name="q1" value="D"> D. Nói càng nhiều càng tốt<br>
+        </div>
+        
+        <div class="question">
+            <p>2. Khi khách chê giá cao, bạn làm gì?</p>
+            <input type="radio" name="q2" value="A"> A. Giảm giá ngay<br>
+            <input type="radio" name="q2" value="B"> B. Giải thích sự khác biệt về chất lượng<br>
+            <input type="radio" name="q2" value="C"> C. Chốt đơn nhanh không cần quan tâm<br>
+            <input type="radio" name="q2" value="D"> D. Bỏ qua khách này<br>
+        </div>
+        
+        <div class="question">
+            <p>3. Khi khách yêu cầu báo giá, điều quan trọng nhất là gì?</p>
+            <input type="radio" name="q3" value="A"> A. Gửi báo giá ngay không cần hỏi thêm thông tin<br>
+            <input type="radio" name="q3" value="B"> B. Hỏi kỹ về số lượng, chất liệu để báo giá chính xác<br>
+            <input type="radio" name="q3" value="C"> C. Báo giá cao hơn để có lợi nhuận cao hơn<br>
+            <input type="radio" name="q3" value="D"> D. Hứa hẹn giảm giá nhiều để khách chốt đơn ngay<br>
+        </div>
+        
+        <div class="question">
+            <p>4. Khi khách hàng chưa quyết định đặt hàng, bạn nên làm gì?</p>
+            <input type="radio" name="q4" value="A"> A. Gọi lại hỏi thăm và giải đáp thêm<br>
+            <input type="radio" name="q4" value="B"> B. Bỏ qua vì khách này không muốn mua<br>
+            <input type="radio" name="q4" value="C"> C. Gửi tin nhắn hàng ngày để ép khách chốt đơn<br>
+            <input type="radio" name="q4" value="D"> D. Tăng giá để tạo cảm giác hàng cao cấp hơn<br>
+        </div>
+        
+        <div class="question">
+            <p>5. Điều quan trọng nhất khi chăm sóc khách hàng sau bán là gì?</p>
+            <input type="radio" name="q5" value="A"> A. Hỏi thăm, hỗ trợ tận tình<br>
+            <input type="radio" name="q5" value="B"> B. Không cần quan tâm sau khi bán<br>
+            <input type="radio" name="q5" value="C"> C. Chỉ nhắn tin nếu khách phàn nàn<br>
+            <input type="radio" name="q5" value="D"> D. Chỉ liên hệ khi có khuyến mãi<br>
+        </div>
+        
+        <button type="button" onclick="calculateScore()">Nộp bài</button>
+    </form>
+    
+    <p class="result" id="result"></p>
+    
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let answers = { q1: 'A', q2: 'B', q3: 'B', q4: 'A', q5: 'A' };
+            
+            for (let key in answers) {
+                let selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (selected && selected.value === answers[key]) {
+                    score++;
+                }
+            }
+            
+            document.getElementById("result").innerText = `Bạn đạt: ${score}/5 điểm`;
+        }
+    </script>
+</body>
+</html>
